@@ -1,20 +1,35 @@
 import * as React from 'react';
 import { Text, StyleSheet, View, Image } from 'react-native';
 import { Constants, LinearGradient} from 'expo';
-import { TouchableOpacity } from 'react-native';
+import { TouchableHighlight } from 'react-native';
+import { Localization } from 'expo-localization';
+import i18n from 'i18n-js';
+const en = {
+  title: 'DinDin',
+  subtitle: 'connecting food lovers',
+};
+const ar = {
+  foo: 'الدين الدين',
+  bar: 'توصيل عشاق الطعام',
+};
 
+i18n.fallbacks = true;
+i18n.translations = { ar, en };
+i18n.locale = Localization.locale;
 export default class Splash extends React.Component {
+
+
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.contentContainer}>
                     <Image style={styles.image} source={require('../assets/Illustration.png')}/>
-                    <Text style={styles.title}>DinDin</Text>
-                    <Text style={styles.connecting}>connecting food lovers</Text>
+                    <Text style={styles.title}> {i18n.t('title')}</Text>
+                    <Text style={styles.connecting}>{i18n.t('subtitle')}</Text>
                 </View>
 
                 <View>
-                    <TouchableOpacity style={styles.button} onPress={this.handlePress}>
+                    <TouchableHighlight underlaycolor={'rgb(55,190,255)'} style={styles.button} onPress={this.handlePress}>
                         <LinearGradient 
                             start={[0,1]}
                             end={[0.53, 0.4]}
@@ -22,7 +37,7 @@ export default class Splash extends React.Component {
                             style={styles.button}>
                             <Text style={styles.startedText}>Get Started</Text>
                         </LinearGradient>
-                    </TouchableOpacity>
+                    </TouchableHighlight>
                 </View>
 
             </View>
@@ -55,8 +70,8 @@ const styles = StyleSheet.create({
 
     title:{
         marginTop: 70,
-        width: 88,
-        height: 39,
+        // width: 88,
+        // height: 39,
         color: "#353535",
         fontFamily: "Helvetica",
         fontSize: 29,
@@ -66,8 +81,8 @@ const styles = StyleSheet.create({
     },
 
     connecting:{
-        width: 300,
-        height: 18,
+        // width: 300,
+        // height: 18,
         opacity: 0.5,
         fontFamily: "Helvetica",
         fontSize: 14,

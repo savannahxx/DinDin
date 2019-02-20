@@ -18,5 +18,4 @@ const styles = StyleSheet.create({
         height: 48,
         margin: Constants.statusBarHeight
     }
-
 })

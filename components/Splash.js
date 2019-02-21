@@ -3,6 +3,7 @@ import { Text, StyleSheet, View, Image } from 'react-native';
 import { Constants, LinearGradient} from 'expo';
 import { TouchableHighlight } from 'react-native';
 import { Localization } from 'expo-localization';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import i18n from 'i18n-js';
 const en = {
   title: 'DinDin',
@@ -29,7 +30,10 @@ export default class Splash extends React.Component {
                 </View>
 
                 <View>
-                    <TouchableHighlight underlaycolor={'rgb(55,190,255)'} style={styles.button} onPress={this.handlePress}>
+                    <TouchableHighlight 
+                        underlaycolor={'rgb(55,190,255)'} 
+                        style={styles.button} 
+                        onPress={()=> this.props.navigation.navigate('Home')}>
                         <LinearGradient 
                             start={[0,1]}
                             end={[0.53, 0.4]}

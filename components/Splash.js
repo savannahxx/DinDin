@@ -18,7 +18,9 @@ i18n.fallbacks = true;
 i18n.translations = { ar, en };
 i18n.locale = Localization.locale;
 export default class Splash extends React.Component {
-
+    static navigationOptions = {
+        header: null,
+    };
 
     render() {
         return (
@@ -67,9 +69,12 @@ const styles = StyleSheet.create({
     },
 
     image:{
+        //flex: .5,
+        //width: undefined,
+        //height: undefined,
         width: 275,
         height: 259,
-        //resizeMode: 'cover',
+        //resizeMode: 'contain',
     },
 
     title:{

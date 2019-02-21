@@ -8,7 +8,22 @@ const rootStack = createStackNavigator({
   Home: {screen: HomeScreen},
 },
 {
-  initalRouteName: 'Splash'
+  initalRouteName: 'Splash',
+  title: 'DinDin',
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: '#fff',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      color: '#353535',
+      fontFamily: "Helvetica",
+      fontSize: 17,
+      fontWeight: '400',
+      lineHeight: 23,
+      textAlign: 'center',
+    },
+  },
 }
 ) 
 

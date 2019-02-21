@@ -5,6 +5,10 @@ import Splash from './Splash';
 import {Constants} from 'expo';
 
 export default class HomeScreen extends React.Component {
+    static navigationOptions = {
+        title: "DinDin",
+    };
+
     render(){
         return(
             <View style={styles.container}>
@@ -19,6 +23,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection:'column',
         backgroundColor: "black",
-        marginTop: Constants.statusBarHeight,
+       
     }
 })

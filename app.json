@@ -25,5 +25,18 @@
     "ios": {
       "supportsTablet": true
     }
+  },
+  "extra": {
+    "firebase": {
+      "apiKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "authDomain": "xxxxxxxxxx.firebaseapp.com",
+      "databaseURL": "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "projectId": "xxxxxxxxxx",
+      "storageBucket": "xxxxxxxxxx.appspot.com",
+      "messagingSenderId": "xxxxxxxxxxxx"
+    },
+    "facebook": {
+      "appId": "xxxxxxxxxxxxxxx"
+    }
   }
 }

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Text, StyleSheet, View, Image } from 'react-native';
-import { Constants, LinearGradient} from 'expo';
-import { TouchableHighlight } from 'react-native';
-import { Localization } from 'expo-localization';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-import i18n from 'i18n-js';
+import { Constants, LinearGradient} from 'expo'; // Linea
+import { TouchableHighlight } from 'react-native'; // Button Darken
+import { Localization } from 'expo-localization'; // Used for Localization Languages
+import { widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import i18n from 'i18n-js'; // Used for Localization Languages
 const en = {
   title: 'DinDin',
   subtitle: 'connecting food lovers',
@@ -70,11 +70,11 @@ const styles = StyleSheet.create({
 
     image:{
         //flex: .5,
-        //width: undefined,
-        //height: undefined,
-        width: 275,
-        height: 259,
-        //resizeMode: 'contain',
+        width: wp('73.33%'),
+        height: hp('38.83%'),
+        //width: 275,
+        //height: 259,
+        resizeMode: 'contain',
     },
 
     title:{
@@ -83,9 +83,9 @@ const styles = StyleSheet.create({
         // height: 39,
         color: "#353535",
         fontFamily: "Helvetica",
-        fontSize: 29,
+        fontSize: hp('4%'),
         fontWeight: "400",
-        lineHeight: 39,
+        //lineHeight: 39,
         textAlign: 'center',
     },
 
@@ -94,15 +94,15 @@ const styles = StyleSheet.create({
         // height: 18,
         opacity: 0.5,
         fontFamily: "Helvetica",
-        fontSize: 14,
+        fontSize: hp('1.8%'),
         fontWeight: "400",
-        lineHeight: 19,
+        // lineHeight: 19,
         textAlign: 'center',
     },
 
     button: { 
         width: '100%', 
-        height: 60,
+        height: hp('7.1964'),
         
         flexDirection: 'row',
         justifyContent: 'center',
@@ -115,9 +115,9 @@ const styles = StyleSheet.create({
     startedText: {
         color: "#ffffff",
         fontFamily: "Helvetica",
-        fontSize: 14,
+        fontSize: hp('2%'),
         fontWeight: '400',
-        lineHeight: 19,
+        // lineHeight: 19,
         textAlign: 'center',
     }
     

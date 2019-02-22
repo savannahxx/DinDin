@@ -3,8 +3,13 @@ import { Text, StyleSheet, View, Image } from 'react-native';
 import { Constants, LinearGradient} from 'expo'; // Linea
 import { TouchableHighlight } from 'react-native'; // Button Darken
 import { Localization } from 'expo-localization'; // Used for Localization Languages
-import { widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { 
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+    } from 'react-native-responsive-screen';
 import i18n from 'i18n-js'; // Used for Localization Languages
+import * as firebase from 'firebase';
+
 const en = {
   title: 'DinDin',
   subtitle: 'connecting food lovers',
@@ -18,11 +23,36 @@ i18n.fallbacks = true;
 i18n.translations = { ar, en };
 i18n.locale = Localization.locale;
 export default class Splash extends React.Component {
+
+    componentDidMount() {
+        firebase.auth().onAuthStateChanged((user) => {
+            if(user != null) {
+                console.log(user);
+                // this.props.navigation.navigate('Home');
+            }
+        } )
+    }
     static navigationOptions = {
         header: null,
     };
+ 
+    async loginWithFacebook() {
+        const {type,token} = await Expo.Facebook.logInWithReadPermissionsAsync
+        ('655537294860846', {permissions: ['public_profile']})
 
+        if (type == 'success'){
+            const credential = firebase.auth.FacebookAuthProvider.credential(token)
+
+            firebase.auth().signInAndRetrieveDataWithCredential(credential).then(function(firebaseUser){
+                console.log("logged in!")
+              }).catch((error) => {
+                console.log(error)
+            })
+        }
+
+    }
     render() {
+        
         return (
             <View style={styles.container}>
                 <View style={styles.contentContainer}>
@@ -35,7 +65,7 @@ export default class Splash extends React.Component {
                     <TouchableHighlight 
                         underlaycolor={'rgb(55,190,255)'} 
                         style={styles.button} 
-                        onPress={()=> this.props.navigation.navigate('Home')}>
+                        onPress={()=> this.loginWithFacebook()}>
                         <LinearGradient 
                             start={[0,1]}
                             end={[0.53, 0.4]}
@@ -48,10 +78,6 @@ export default class Splash extends React.Component {
 
             </View>
         );
-
-    }
-
-    handlePress = () => {
     }
 }
 
@@ -103,7 +129,6 @@ const styles = StyleSheet.create({
     button: { 
         width: '100%', 
         height: hp('7.1964'),
-        
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -122,3 +147,4 @@ const styles = StyleSheet.create({
     }
     
 })
+

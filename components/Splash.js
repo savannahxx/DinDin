@@ -28,7 +28,7 @@ export default class Splash extends React.Component {
         firebase.auth().onAuthStateChanged((user) => {
             if(user != null) {
                 console.log(user);
-                // this.props.navigation.navigate('Home');
+                this.props.navigation.navigate('Home');
             }
         } )
     }

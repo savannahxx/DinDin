@@ -4,6 +4,7 @@ import HomeScreen from './components/HomeScreen';
 import Splash from './components/Splash';
 import * as firebase from 'firebase';
 import CreateEvent from './components/CreateEvent';
+import SendInvites from './components/SendInvites';
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyA3VfFOvQraAMjX3za8JFsuSbi49S-png8",
@@ -16,12 +17,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const rootStack = createDrawerNavigator({
-  Splash: {screen: Splash},
+  //Splash: {screen: Splash},
   Home: {screen: HomeScreen},
   CreateEvent: {screen: CreateEvent},
+  SendInvites: {screen: SendInvites},
 },
 {
-  initalRouteName: 'Splash',
+  initalRouteName: 'Home',
   title: 'DinDin',
   defaultNavigationOptions: {
     headerStyle: {

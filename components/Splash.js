@@ -44,7 +44,7 @@ export default class Splash extends React.Component {
             const credential = firebase.auth.FacebookAuthProvider.credential(token)
 
             firebase.auth().signInAndRetrieveDataWithCredential(credential).then(function(firebaseUser){
-                console.log("logged in!")
+                console.log("logged in!");
               }).catch((error) => {
                 console.log(error)
             })
